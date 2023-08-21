@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BooksCategory>
+
+@{
+
+    ViewData["Title"] = "Book Name";
+
+}
+<h3>@ViewData["Title"] </h3>
+<p>
+    <a asp-action="Create" class=" btn btn-primary btn-sm"> Create New Book Title</a>
+
+</p>
+
+<table class="table table-boarded table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categories.Category_Name)
+            </th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var bookcategory in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => bookcategory.Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => bookcategory.Categories.Category_Name)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@bookcategory.BK_ID" class="btn btn-success btn-sm">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@bookcategory.BK_ID" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5">
+                    <div>Products Not Available in the database</div>
+
+                </td>
+
+            </tr>
+
+        }
+
+    </tbody>
+</table>

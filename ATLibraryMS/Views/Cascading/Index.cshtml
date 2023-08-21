@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Display Book Title"; 
+
+}
+
+<h2>@ViewData["Title"]</h2>
+<div class="container" >
+    <div class="card boarder-primary">
+        <div class="card card-header fw-bold border primary">
+            Category
+
+        </div>
+        <div class="row" >
+            <div class="col-10 offset-1">
+            <form>
+                <div calss="mb-2">
+                    <label>Category</label>
+                        <select id="category" class="form-control "></select>
+                </div>
+
+                <div calss="mb-2">
+                    <label>Book Title</label>
+                        <select id="booktitle" class="form-control"></select>
+                </div>
+
+            </form>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/dropdownlist.js"></script>
